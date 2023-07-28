@@ -1,12 +1,15 @@
 import time
+
 import ray
 
 ray.init()  # Initialize Ray
 
+
 @ray.remote
 def add_one_and_sleep(x):
     time.sleep(1)  # Sleep for 1 second
-    return x + 1   # Adds 1 to the input value
+    return x + 1  # Adds 1 to the input value
+
 
 # Record the start time
 start_time = time.time()
