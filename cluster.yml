@@ -126,27 +126,8 @@ rsync_filter:
 # is setup.
 initialization_commands: []
 
-# List of shell commands to run to set up nodes.
-setup_commands: []
-    # Note: if you're developing Ray, you probably want to create a Docker image that
-    # has your Ray repo pre-cloned. Then, you can replace the pip installs
-    # below with a git checkout <your_sha> (and possibly a recompile).
-    # To run the nightly version of ray (as opposed to the latest), either use a rayproject docker image
-    # that has the "nightly" (e.g. "rayproject/ray-ml:nightly-gpu") or uncomment the following line:
-    # - pip install -U "ray[default] @ https://s3-us-west-2.amazonaws.com/ray-wheels/latest/ray-3.0.0.dev0-cp37-cp37m-manylinux2014_x86_64.whl"
-
-# Custom commands that will be run on the head node after common setup.
-head_setup_commands: []
-
-# Custom commands that will be run on worker nodes after common setup.
-worker_setup_commands: []
-
-# Command to start ray on the head node. You don't need to change this.
-head_start_ray_commands:
-    - ray stop
-    - ray start --head --port=6379 --object-manager-port=8076 --autoscaling-config=~/ray_bootstrap_config.yaml --dashboard-host=0.0.0.0
-
-# Command to start ray on worker nodes. You don't need to change this.
-worker_start_ray_commands:
-    - ray stop
-    - ray start --address=$RAY_HEAD_IP:6379 --object-manager-port=8076
+setup_commands: 
+    - sleep 4 
+    - sudo apt update
+    - sudo apt install -y python3-pip python-is-python3
+    - pip install ray[default]

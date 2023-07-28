@@ -2,7 +2,7 @@ import time
 
 import ray
 
-ray.init()  # Initialize Ray
+ray.init(address='auto')  # Initialize Ray
 
 
 @ray.remote
