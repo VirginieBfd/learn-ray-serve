@@ -67,7 +67,7 @@ available_node_types:
         # http://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.ServiceResource.create_instances
         node_config:
             InstanceType: t3.micro
-            ImageId: ami-0387d929287ab193e
+            ImageId: ami-040d60c831d02d41c
 
     ray.worker.default:
         # The minimum number of worker nodes of this type to launch.
@@ -88,7 +88,7 @@ available_node_types:
         # http://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.ServiceResource.create_instances
         node_config:
             InstanceType: t3.micro
-            ImageId: ami-0387d929287ab193e
+            ImageId: ami-040d60c831d02d41c
 
 # Specify the node type of the head node (as configured above).
 head_node_type: ray.head.default
